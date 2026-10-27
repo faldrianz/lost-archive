@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171714">
+<title>Lost Archive — Search the forgotten</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><a class="brand" href="#"><span class="seal">LA</span> LOST ARCHIVE</a><span class="top-note">A WINDOW INTO THE PUBLIC DOMAIN</span><a class="source" href="https://www.loc.gov/" target="_blank" rel="noreferrer">LIBRARY OF CONGRESS ↗</a></header>
+<main>
+<section class="hero">
+  <div class="kicker"><span></span> OPEN COLLECTIONS / FIELD NOTE 001</div>
+  <h1>The past is<br><i>still searchable.</i></h1>
+  <p class="intro">An experimental search engine for forgotten photographs, maps, posters, manuscripts, and fragments of everyday life preserved in the Library of Congress.</p>
+  <div class="searchbox"><label for="query">SEARCH THE ARCHIVE</label><div class="searchline"><input id="query" value="forgotten city" placeholder="Try: vintage computers, moon, Indonesia, jazz..."><button id="search">SEARCH ↗</button></div><div class="suggestions"><span>START SOMEWHERE</span><button data-query="vintage computers">Vintage computers</button><button data-query="outer space">Outer space</button><button data-query="street scenes">Street scenes</button><button data-query="posters">Posters</button><button data-query="Indonesia">Indonesia</button></div></div>
+  <div class="hero-foot"><span>NO ACCOUNT. NO API KEY.</span><span>PUBLIC COLLECTIONS · LIVE SEARCH</span></div>
+</section>
+<section class="results">
+  <div class="results-head"><div><div class="kicker">THE FINDINGS</div><h2 id="heading">A little time travel.</h2></div><div id="status">READY TO SEARCH</div></div>
+  <div id="grid" class="grid"><div class="placeholder"><div class="placeholder-mark">✳</div><p>Search a word, place, object, or idea.<br>The archive will do the digging.</p></div></div>
+  <div class="load-row"><button id="more" hidden>LOAD MORE RESULTS ↓</button></div>
+  <p class="disclaimer">Items and metadata are returned live by the Library of Congress API. Rights vary by item; always check the rights and access information on the original record before reuse.</p>
+</section>
+<section class="why">
+  <div><div class="kicker">THE API DISCOVERY</div><h2>A national collection.<br><i>One public endpoint.</i></h2></div>
+  <div class="why-copy"><p class="big">The Library of Congress exposes structured collection data directly to developers, without an API key or account.</p><p>Search across digitized photographs, maps, posters, manuscripts, audio, video, and more. The API returns JSON metadata and links to images and original item pages, so anyone can build a new lens on the collection.</p><a href="https://www.loc.gov/apis/json-and-yaml/" target="_blank" rel="noreferrer">READ THE OFFICIAL API DOCS ↗</a></div>
+</section>
+<section class="request">
+ <div class="kicker">REPRODUCIBLE REQUEST</div><h2>One curl command.</h2>
+ <pre id="curl">curl -L "https://www.loc.gov/search/?q=forgotten%20city&fo=json&c=12"</pre>
+ <button id="copy">COPY REQUEST ⧉</button>
+ <div class="request-foot"><span>GET · JSON</span><span>OFFICIAL LIBRARY OF CONGRESS API</span></div>
+</section>
+</main>
+<footer><span>LOST ARCHIVE / INDEPENDENT DEMO</span><span>Not affiliated with the Library of Congress</span></footer>
+<script src="app.js"></script>
+</body></html>
