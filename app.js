@@ -25,8 +25,22 @@ async function search(next=false){
  $("status").textContent="FETCHING LIVE DATA…";$("search").disabled=true;
  const url=endpoint(q,page);$("curl").textContent=`curl -L "${url}"`;
  try{
-  const res=await fetch(url,{headers:{Accept:"application/json"}});if(!res.ok)throw new Error(`HTTP ${res.status}`);
-  const data=await res.json();const items=data.results||[];
+  let res;
+
+try {
+  res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  var data = await res.json();
+} catch (directError) {
+  const proxyUrl =
+    "https://api.allorigins.win/raw?url=" +
+    encodeURIComponent(url);
+
+  res = await fetch(proxyUrl);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  var data = await res.json();
+}
+  const items = data.results || [];
   if(!next){$("heading").textContent=`Found in “${q}”.`;render(items)}else render(items,true);
   $("status").textContent=`${Number(data.pagination?.total??items.length).toLocaleString()} RECORDS IN SEARCH`;
   $("more").hidden=!data.pagination?.next; $("more").disabled=!data.pagination?.next;
